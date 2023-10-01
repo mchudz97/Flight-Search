@@ -18,7 +18,7 @@ abstract class FlightSearchDatabase : RoomDatabase() {
             return Instance ?: synchronized(this) {
                 Room.databaseBuilder(
                     context,
-                    FlightSearchDatabase::class.java, "flight_search_database"
+                    FlightSearchDatabase::class.java, "flight_search"
                 ).build().also { Instance = it }
             }
         }
