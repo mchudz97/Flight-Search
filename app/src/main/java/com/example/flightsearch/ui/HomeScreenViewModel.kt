@@ -88,11 +88,10 @@ class HomeScreenViewModel(
         airportRepository.getSuggestedAirportsStream(newPhase).collect{
             when(uiState.value){
                 is HomeScreenUiState.Default -> {
-                    uiState.value = HomeScreenUiState.WithPhase(it, newPhase)
+                    uiState.value = HomeScreenUiState.WithPhase(it, "")
                 }
                 is HomeScreenUiState.WithPhase ->{
-                    val phase = (uiState.value as HomeScreenUiState.WithPhase).phase
-                    uiState.value = HomeScreenUiState.WithPhase(it, phase)
+                    uiState.value = HomeScreenUiState.WithPhase(it, newPhase)
                 }
             }
         }
