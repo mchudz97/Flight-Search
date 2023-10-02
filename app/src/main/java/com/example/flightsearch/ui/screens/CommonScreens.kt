@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -74,7 +76,10 @@ fun TopAppBar(
                         //fontWeight = FontWeight.Bold,
                         fontFamily = FontFamily.Monospace,
                         style = MaterialTheme.typography.labelSmall,
-                        color = Color.White
+                        color = Color.White,
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1,
+                        modifier = Modifier.widthIn(0.dp, 280.dp)
                     )
                 }
             }

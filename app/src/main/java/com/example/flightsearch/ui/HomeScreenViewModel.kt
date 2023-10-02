@@ -86,14 +86,7 @@ class HomeScreenViewModel(
     }
     private suspend fun setupWithPhaseState(newPhase: String){
         airportRepository.getSuggestedAirportsStream(newPhase).collect{
-            when(uiState.value){
-                is HomeScreenUiState.Default -> {
-                    uiState.value = HomeScreenUiState.WithPhase(it, "")
-                }
-                is HomeScreenUiState.WithPhase ->{
-                    uiState.value = HomeScreenUiState.WithPhase(it, newPhase)
-                }
-            }
+            uiState.value = HomeScreenUiState.WithPhase(it, newPhase)
         }
     }
     companion object {
